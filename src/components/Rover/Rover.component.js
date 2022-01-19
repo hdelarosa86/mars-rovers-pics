@@ -13,7 +13,6 @@ const Rover = (props) => {
       )
       .then((response) => response.data)
       .then((data) => {
-        console.log(data.photos);
         setPictures(data.photos);
       })
       .catch((error) => {
