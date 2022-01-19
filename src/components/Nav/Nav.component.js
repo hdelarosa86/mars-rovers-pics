@@ -3,14 +3,14 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Rover from '../Rover/Rover.component';
 
 const Nav = () => {
-  //const rovers = ['curiosity', 'opportunity', 'spirit'];
+  const rovers = ['curiosity', 'opportunity', 'spirit'];
 
   return (
     <nav>
       <Router>
-        <Link to="/curiosity">Curiosity</Link>
-        <Link to="/opportunity">opportunity</Link>
-        <Link to="/spirit">spirit</Link>
+        {rovers.map((rover) => (
+          <Link to={rover}> {rover}</Link>
+        ))}
         <Routes>
           <Route path="/:id" element={<Rover />} />
         </Routes>

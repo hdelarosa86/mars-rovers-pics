@@ -4,11 +4,10 @@ import List from '../List/List.component';
 
 const Rover = (props) => {
   const fetchPictures = (id) => {
-      console.log(id);
     const APIkey = '71Vj7BUTdloD0PqfnxsedPcToe0jQDNMX5Z34SIe';
     window
       .fetch(
-        `https://api.nasa.gov/mars-photos/api/v1/rovers/${id}/photos?sol=0&api_key=${APIkey}&page=1`
+        `https://api.nasa.gov/mars-photos/api/v1/rovers/${id}/photos?sol=1000&api_key=${APIkey}`
       )
       .then((response) => response.json())
       .then((data) => {
