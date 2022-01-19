@@ -1,6 +1,7 @@
 import React from 'react';
 import Rover from './components/Rover/Rover.component';
 import Nav from './components/Nav/Nav.component';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 class App extends React.Component {
   constructor() {
@@ -12,7 +13,14 @@ class App extends React.Component {
   }
 
   render() {
-    return <Nav />;
+    return (
+      <Router>
+        <Nav />
+        <Routes>
+          <Route path="/:id" element={<Rover />} />
+        </Routes>
+      </Router>
+    );
   }
 }
 
