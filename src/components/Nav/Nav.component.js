@@ -6,8 +6,10 @@ const Nav = () => {
 
   return (
     <nav>
-      {rovers.map((rover) => (
-        <Link to={rover}> {rover}</Link>
+      {rovers.map((rover, idx) => (
+        <Link to={rover} key={idx}>
+          {rover}
+        </Link>
       ))}
     </nav>
   );
