@@ -1,22 +1,20 @@
 import React from 'react';
+import Picture from '../Picture/Picture.component';
 
 const List = ({ pictures }) => {
-  let list;
   if (!pictures) {
-    list = <span>No pictures</span>;
+    return <span>No pictures</span>;
   } else {
-    list = (
-      <div>
+    return (
+      <ul>
         {pictures.map((picture) => (
-          <div>
-            <img height="150px" width="150px" src={picture.img_src} alt="" />
-            <span>Heart</span>
-          </div>
+          <li>
+            <Picture picture={picture} />
+          </li>
         ))}
-      </div>
+      </ul>
     );
   }
-  return list;
 };
 
 export default List;
