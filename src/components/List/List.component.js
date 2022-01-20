@@ -1,11 +1,23 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import Picture from '../Picture/Picture.component';
+import ImageList from '@mui/material/ImageList';
+import ImageListItem from '@mui/material/ImageListItem';
 
 const List = ({ pictures }) => {
-  const [favorites, setFavorites] = useState([]);
+  if (!window.localStorage.getItem('favoritesLocalStorage')) {
+    window.localStorage.setItem('favoritesLocalStorage', JSON.stringify([]));
+  }
+
+  let initialState = JSON.parse(
+    window.localStorage.getItem('favoritesLocalStorage')
+  );
+  const [favorites, setFavorites] = useState(initialState);
 
   useEffect(() => {
-    window.localStorage.setItem('favorites', JSON.stringify(favorites));
+    window.localStorage.setItem(
+      'favoritesLocalStorage',
+      JSON.stringify(favorites)
+    );
   });
 
   const onClickSetFavoritesHandler = useCallback(
@@ -24,16 +36,16 @@ const List = ({ pictures }) => {
     return <span>No pictures</span>;
   } else {
     return (
-      <ul>
+      <ImageList cols={3} rowHeight={325}>
         {pictures.map((picture) => (
-          <li key={picture.id}>
+          <ImageListItem key={picture.id}>
             <Picture
               picture={picture}
               setFavoritesHandler={onClickSetFavoritesHandler}
             />
-          </li>
+          </ImageListItem>
         ))}
-      </ul>
+      </ImageList>
     );
   }
 };

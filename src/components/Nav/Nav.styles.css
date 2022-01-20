@@ -1,0 +1,16 @@
+a {
+    font-size: 1.4em;
+    display: inline-block;
+    color: black;
+    margin: 2em;
+    text-decoration: none;
+}
+
+.active {
+    border-bottom: 2px solid black;
+}
+
+nav{
+    display: flex;
+    justify-content: center;
+}
