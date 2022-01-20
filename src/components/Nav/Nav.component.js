@@ -3,13 +3,17 @@ import { Link } from 'react-router-dom';
 import './Nav.styles.css';
 
 const Nav = () => {
-  const rovers = ['curiosity', 'opportunity', 'spirit'];
+  const rovers = [
+    { to: 'curiosity', title: 'Curiosity' },
+    { to: 'opportunity', title: 'Opportunity' },
+    { to: 'spirit', title: 'Spirit' },
+  ];
   return (
     <nav>
       {rovers.map((rover, idx) => {
         return (
-          <Link to={rover} key={idx}>
-            {rover}
+          <Link to={rover.to} key={idx}>
+            {rover.title}
           </Link>
         );
       })}

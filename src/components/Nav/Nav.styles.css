@@ -4,13 +4,15 @@ a {
     color: black;
     margin: 2em;
     text-decoration: none;
+    box-sizing: border-box;
 }
 
-.active {
-    border-bottom: 2px solid black;
+a:hover {
+    border-bottom: 1px solid black; 
 }
 
 nav{
     display: flex;
     justify-content: center;
+    background-color: rgb(241, 237, 228);
 }
